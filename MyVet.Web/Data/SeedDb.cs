@@ -25,9 +25,11 @@ namespace MyVet.Web.Data
             await CheckRoles();
             var manager = await CheckUserAsync("1010", "Juan", "Zuluaga", "jzuluaga55@gmail.com", "350 634 2747", "Calle Luna Calle Sol", "Admin");
             var customer = await CheckUserAsync("2020", "Juan", "Zuluaga", "jzuluaga55@hotmail.com", "350 634 2747", "Calle Luna Calle Sol", "Customer");
+            var customer2 = await CheckUserAsync("2020", "Juan", "Zuluaga", "jzuluaga55@yahoo.com", "350 634 2747", "Calle Luna Calle Sol", "Customer");
             await CheckPetTypesAsync();
             await CheckServiceTypesAsync();
             await CheckOwnerAsync(customer);
+            await CheckOwnerAsync(customer2);
             await CheckManagerAsync(manager);
             await CheckPetsAsync();
             await CheckAgendasAsync();
@@ -81,6 +83,7 @@ namespace MyVet.Web.Data
                 _dataContext.ServiceTypes.Add(new ServiceType { Name = "Consulta" });
                 _dataContext.ServiceTypes.Add(new ServiceType { Name = "Urgencia" });
                 _dataContext.ServiceTypes.Add(new ServiceType { Name = "Vacunación" });
+                _dataContext.ServiceTypes.Add(new ServiceType { Name = "Guarderia" });
                 await _dataContext.SaveChangesAsync();
             }
         }
@@ -91,6 +94,9 @@ namespace MyVet.Web.Data
             {
                 _dataContext.PetTypes.Add(new PetType { Name = "Perro" });
                 _dataContext.PetTypes.Add(new PetType { Name = "Gato" });
+                _dataContext.PetTypes.Add(new PetType { Name = "Tortuga" });
+                _dataContext.PetTypes.Add(new PetType { Name = "Serpiente" });
+                _dataContext.PetTypes.Add(new PetType { Name = "Mini Pig" });
                 await _dataContext.SaveChangesAsync();
             }
         }
