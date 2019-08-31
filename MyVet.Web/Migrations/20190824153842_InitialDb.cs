@@ -10,7 +10,7 @@ namespace MyVet.Web.Migrations
                 name: "Owners",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    Id = table.Column<int>(nullable: false),
                     Document = table.Column<string>(maxLength: 30, nullable: false),
                     FirstName = table.Column<string>(maxLength: 50, nullable: false),
                     LastName = table.Column<string>(maxLength: 50, nullable: false),

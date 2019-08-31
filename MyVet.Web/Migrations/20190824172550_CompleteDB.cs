@@ -46,7 +46,7 @@ namespace MyVet.Web.Migrations
                     Born = table.Column<DateTime>(nullable: false),
                     Remarks = table.Column<string>(nullable: true),
                     PetTypeId = table.Column<int>(nullable: true),
-                    OwnerId = table.Column<string>(nullable: true)
+                    OwnerId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -74,7 +74,7 @@ namespace MyVet.Web.Migrations
                     Date = table.Column<DateTime>(nullable: false),
                     Remarks = table.Column<string>(nullable: true),
                     IsAvailable = table.Column<bool>(nullable: false),
-                    OwnerId = table.Column<string>(nullable: true),
+                    OwnerId = table.Column<int>(nullable: true),
                     PetId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>

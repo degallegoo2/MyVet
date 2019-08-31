@@ -8,7 +8,7 @@ namespace MyVet.Web.Data.Entities
 {
     public class Owner
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public User User { get; set; }
 

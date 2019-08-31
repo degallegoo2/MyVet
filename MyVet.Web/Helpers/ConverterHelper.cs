@@ -24,6 +24,7 @@ namespace MyVet.Web.Helpers
                 Agendas = model.Agendas,
                 Born = model.Born,
                 Histories = model.Histories,
+                Id = model.Id,
                 ImageUrl = path,
                 Name = model.Name,
                 Owner = await _dataContext.Owners.FindAsync(model.OwnerId),

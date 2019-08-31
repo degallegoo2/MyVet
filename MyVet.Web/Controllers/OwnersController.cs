@@ -44,7 +44,7 @@ namespace MyVet.Web.Controllers
         }
 
         // GET: Owners/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -143,7 +143,7 @@ namespace MyVet.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id")] Owner owner)
+        public async Task<IActionResult> Edit(int id, [Bind("Id")] Owner owner)
         {
             if (id != owner.Id)
             {
@@ -174,7 +174,7 @@ namespace MyVet.Web.Controllers
         }
 
         // GET: Owners/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (id == null)
             {
@@ -202,14 +202,14 @@ namespace MyVet.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool OwnerExists(string id)
+        private bool OwnerExists(int id)
         {
             return _context.Owners.Any(e => e.Id == id);
         }
 
 
         // GET: Owners/Details/5
-        public async Task<IActionResult> AddPet(string id)
+        public async Task<IActionResult> AddPet(int id)
         {
             if (id == null)
             {
