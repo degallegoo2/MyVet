@@ -18,11 +18,14 @@ namespace MyVet.Web.Helpers
         Task<bool> IsUserInRoleAsync(User user, string roleName);
 
         Task<SignInResult> LoginAsync(LoginViewModel model);
+
+        Task LogoutAsync();
         Task<bool> DeleteUserAsync(string email);
 
         Task<IdentityResult> UpdateUserAsync(User user);
 
-        Task LogoutAsync();
+        
+        Task<SignInResult> ValidatePasswordAsync(User user, string password);
 
     }
 }
