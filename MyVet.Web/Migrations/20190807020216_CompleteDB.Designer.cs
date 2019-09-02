@@ -10,7 +10,7 @@ using MyVet.Web.Data;
 namespace MyVet.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190824172550_CompleteDB")]
+    [Migration("20190807020216_CompleteDB")]
     partial class CompleteDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,7 +31,7 @@ namespace MyVet.Web.Migrations
 
                     b.Property<bool>("IsAvailable");
 
-                    b.Property<string>("OwnerId");
+                    b.Property<int?>("OwnerId");
 
                     b.Property<int?>("PetId");
 
@@ -75,8 +75,9 @@ namespace MyVet.Web.Migrations
 
             modelBuilder.Entity("MyVet.Web.Data.Entities.Owner", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address")
                         .HasMaxLength(100);
@@ -119,7 +120,7 @@ namespace MyVet.Web.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<string>("OwnerId");
+                    b.Property<int?>("OwnerId");
 
                     b.Property<int?>("PetTypeId");
 

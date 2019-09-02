@@ -10,7 +10,7 @@ using MyVet.Web.Data;
 namespace MyVet.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190824185550_Users")]
+    [Migration("20190809014114_Users")]
     partial class Users
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -141,7 +141,7 @@ namespace MyVet.Web.Migrations
 
                     b.Property<bool>("IsAvailable");
 
-                    b.Property<string>("OwnerId");
+                    b.Property<int?>("OwnerId");
 
                     b.Property<int?>("PetId");
 
@@ -200,8 +200,9 @@ namespace MyVet.Web.Migrations
 
             modelBuilder.Entity("MyVet.Web.Data.Entities.Owner", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("UserId");
 
@@ -226,7 +227,7 @@ namespace MyVet.Web.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<string>("OwnerId");
+                    b.Property<int?>("OwnerId");
 
                     b.Property<int?>("PetTypeId");
 
@@ -281,21 +282,28 @@ namespace MyVet.Web.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
-                    b.Property<string>("Address");
+                    b.Property<string>("Address")
+                        .HasMaxLength(100);
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
-                    b.Property<string>("Document");
+                    b.Property<string>("Document")
+                        .IsRequired()
+                        .HasMaxLength(20);
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(50);
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50);
 
                     b.Property<bool>("LockoutEnabled");
 
