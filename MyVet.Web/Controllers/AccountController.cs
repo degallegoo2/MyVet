@@ -72,6 +72,7 @@ namespace MyVet.Web.Controllers
 
                     if (result.Succeeded)
                     {
+
                         var claims = new[]
                         {
                             new Claim(JwtRegisteredClaimNames.Sub, user.Email),
