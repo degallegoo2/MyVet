@@ -6,6 +6,7 @@
              x:Class="MyVet.Prism.Views.PetPage"
              Title="{Binding Title}">
 
+    
     <StackLayout
         Padding="10">
         <Image 
